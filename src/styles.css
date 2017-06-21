@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+  background-image: url("images/wallpaperSpiderman.jpg");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
