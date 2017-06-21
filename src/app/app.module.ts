@@ -9,16 +9,19 @@ import { CallbackModule } from './callback/callback.module';
 
 import { AuthService } from './auth/services/auth.service';
 
+import { MaterializeModule } from 'ng2-materialize';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     MoviesModule,
     HomeModule,
-    CallbackModule
+    CallbackModule,
+    MaterializeModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
