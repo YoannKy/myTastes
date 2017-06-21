@@ -1,6 +1,7 @@
 export class Serie {
-  id: string;
-  thetvdb_id: string;
+  id: number;
+  thetvdb_id: number;
+  imdb_id: string;
   title: string;
   seasons: string;
   episodes: string;
