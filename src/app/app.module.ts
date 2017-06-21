@@ -6,6 +6,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {BetaSeriesService} from './beta-series.service';
 
+import { MoviesModule } from './movies/movies.module';
+import { HomeModule } from './home/home.module';
+import { CallbackModule } from './callback/callback.module';
+
+import { AuthService } from './auth/services/auth.service';
+
+import { MaterializeModule } from 'ng2-materialize';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,8 +23,12 @@ import {BetaSeriesService} from './beta-series.service';
     AppRoutingModule,
     MoviesModule,
     SeriesModule,
-    ],
-  providers: [],
+    HomeModule,
+    CallbackModule,
+    MaterializeModule.forRoot(),
+    AppRoutingModule
+  providers: [AuthService],
+  ],
   bootstrap: [AppComponent]
   })
 export class AppModule { }
