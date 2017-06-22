@@ -1,6 +1,6 @@
 <nav>
-  <div class="nav-wrapper">
-    <a routerLink="/" class="brand-logo">My Tastes</a>
+  <div class="nav-wrapper #546e7a blue-grey darken-1">
+    <a routerLink="/" class="brand-logo col s4 offset-s4">My Tastes</a>
     <a href="#" data-activates="nav-mobile" class="button-collapse"><i mz-icon-mdi icon="menu"></i></a>
     <ul class="right hide-on-med-and-down">
       <li><a *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Log In</a></li>
@@ -19,3 +19,18 @@
 
 <a href="https://www.betaseries.com/authorize?client_id=fec5a9ca0aa3&redirect_uri=http://localhost:4200/redirect">Link</a>
 <router-outlet></router-outlet>
+  <div class="fixed-action-btn horizontal click-to-toggle actionButton">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
