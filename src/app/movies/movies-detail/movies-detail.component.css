@@ -8,3 +8,11 @@
 .synopsis{
   margin-top: 40px;
 }
+
+.add-to-fav-btn {
+  margin-top: 20px;
+}
+
+.add-to-fav-btn i {
+  vertical-align: middle;
+}

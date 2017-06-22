@@ -4,6 +4,12 @@
 }
 
 .home a{
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.home a:hover {
   color: #424242;
 }
 
@@ -23,21 +29,3 @@
   font-size: 25px;
   text-align: center;
 }
-
-
-.ConnectedStatus{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-.ConnectedStatus span{
-  color: #e4e4e4;
-}
-
-.connected{
-  background-color: #388e3c;
-}
-.notconnected span{
-  color: #424242;
-}
-

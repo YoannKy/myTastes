@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
-    this.token = localStorage.getItem('access_token_api');
   }
 
 }
