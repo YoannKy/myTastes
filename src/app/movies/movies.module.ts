@@ -8,6 +8,7 @@ import { MaterializeModule } from 'ng2-materialize';
 import { MoviesComponent } from './movies.component';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesDetailComponent } from './movies-detail/movies-detail.component';
+import { MoviesFavoritesComponent } from './movies-favorites/movies-favorites.component';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import { MoviesDetailComponent } from './movies-detail/movies-detail.component';
     MaterializeModule.forRoot(),
     MoviesRoutingModule
   ],
-  declarations: [MoviesComponent, MoviesDetailComponent]
+  declarations: [MoviesComponent, MoviesDetailComponent, MoviesFavoritesComponent]
 })
 export class MoviesModule { }

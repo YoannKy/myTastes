@@ -1,0 +1,5 @@
+<div class="container movies-section">
+  <mz-collection class="scale-transition scale-out" *ngIf="movies.length > 0">
+    <a *ngFor="let movie of movies" mz-collection-link [routerLink]="['/movies/detail', movie.id]">{{movie.title}}</a>
+  </mz-collection>
+</div>
