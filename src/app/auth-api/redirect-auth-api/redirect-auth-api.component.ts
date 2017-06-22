@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CallbackHttpService } from '../services/callback-http.service';
 import { Router, ActivatedRoute }  from '@angular/router';
 
+
 @Component({
   selector: 'app-redirect-auth-api',
   templateUrl: './redirect-auth-api.component.html',
@@ -17,13 +18,12 @@ private homeId
 
   ngOnInit() {
   	this.activatedRoute.queryParams.subscribe(params => {
-  	console.log( params.code);
   		let code = params.code;
   		if (typeof(code) != 'undefined') {
-  		this.callbackHttpService.postAccessToken(code);
+  		    this.callbackHttpService.postAccessToken(code);
+          this.router.navigate(['/']);
   		}
-      }
-    );
+    });
   }
 
 }

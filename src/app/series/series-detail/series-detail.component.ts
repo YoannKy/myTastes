@@ -18,7 +18,7 @@ export class SeriesDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.seriesService.getSerie(+params['id']))
-      .subscribe(serie => this.serie = serie);
+      .subscribe(serie => {this.serie = serie;});
   }
 
 }

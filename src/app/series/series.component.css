@@ -6,3 +6,9 @@
 .pagination li a i {
   vertical-align: sub;
 }
+
+.alert {
+  padding: 10px 0;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+}
