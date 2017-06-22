@@ -21,4 +21,7 @@ export class SeriesDetailComponent implements OnInit {
       .subscribe(serie => {this.serie = serie;});
   }
 
+  addFavorite(id: string) {
+    this.seriesService.postSerie(id);
+  }
 }

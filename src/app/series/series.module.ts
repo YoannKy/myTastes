@@ -8,7 +8,7 @@ import { MaterializeModule } from 'ng2-materialize';
 import { SeriesRoutingModule } from './series-routing.module';
 import { SeriesComponent } from './series.component';
 import { SeriesDetailComponent } from './series-detail/series-detail.component';
-
+import { SeriesFavoritesComponent } from './series-favorites/series-favorites.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +18,6 @@ import { SeriesDetailComponent } from './series-detail/series-detail.component';
     MaterializeModule.forRoot(),
     SeriesRoutingModule
   ],
-  declarations: [SeriesComponent, SeriesDetailComponent]
+  declarations: [SeriesComponent, SeriesDetailComponent, SeriesFavoritesComponent]
 })
 export class SeriesModule { }

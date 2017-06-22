@@ -22,7 +22,6 @@ export class SeriesComponent implements OnInit {
     this.seriesService
       .getSeries({page: this.page, limit: this.limit, title: this.searchInput})
       .then((series) => {
-        console.log(series);
         this.series = series;
         this.loading = false;
       });
@@ -43,8 +42,8 @@ export class SeriesComponent implements OnInit {
 
   ngOnInit() {
     this.getSeries();
-    this.searchInputControl.valueChanges
-      .debounceTime(500)
-      .subscribe(newValue => {this.searchInput = newValue; this.getSeries()});
+    // this.searchInputControl.valueChanges
+    //   .debounceTime(500)
+    //   .subscribe(newValue => {this.searchInput = newValue; this.getSeries()});
   }
 }

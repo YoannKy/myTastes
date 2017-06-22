@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, HttpModule, Response } from '@angular/http';
+import { Headers, Http, HttpModule, Response,  RequestOptions, URLSearchParams } from '@angular/http';
 import { BetaSeriesService } from '../../beta-series.service';
 import { Movie } from '../model/movie';
 import 'rxjs/add/operator/toPromise';
@@ -41,4 +41,38 @@ export class MoviesService extends BetaSeriesService {
       .then(response => response.json().movie as Movie)
       .catch(this.handleError);
   }
+
+  private preparePostParameters(id: string)
+  {
+    let urlParams = new URLSearchParams();
+    console.log(BETA_SERIES.apiKey);
+    urlParams.append('key', BETA_SERIES.apiKey);
+    urlParams.append('access_token', localStorage.getItem('access_token_api'));
+    urlParams.append('id', id);
+    return urlParams;
+  }
+
+  postFavoriteMovie(id: string) {
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'});
+    let options = new RequestOptions({headers: headers});
+    let urlParams = this.preparePostParameters(id);
+    let postFavoriteMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.postFavorite}`;
+    return this.http
+        .post(postFavoriteMovieUrl, urlParams, options)
+        .toPromise()
+        .then()
+        .catch(this.handleError);
+  }
+
+    postToSeeMovie(id: string) {
+      let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+      let options = new RequestOptions({ headers: headers });
+      let urlParams = this.preparePostParameters(id);
+      let postToSeeMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.postToSee}`;
+      return this.http
+          .post(postToSeeMovieUrl, urlParams, options)
+          .toPromise()
+          .then(() => this.postFavoriteMovie(id))
+          .catch(this.handleError);
+    }
 }

@@ -1,0 +1,5 @@
+<div class="container series-section">
+  <mz-collection class="scale-transition scale-out" *ngIf="series && series.length > 0">
+    <a *ngFor="let serie of series" mz-collection-link [routerLink]="['/series/detail', serie.id]">{{serie.title}}</a>
+  </mz-collection>
+</div>
