@@ -7,10 +7,13 @@ import { AuthService } from './../auth/services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  token: string;
 
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
+    this.token = localStorage.getItem('access_token_api');
+    console.log(this.token);
   }
 
 }
