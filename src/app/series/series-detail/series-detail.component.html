@@ -1,24 +1,47 @@
-<div *ngIf="serie">
-  <h2>{{serie.title}}</h2>
+<div class="serie-detail">
 
-  <div class="row">
+  <mz-parallax [height]="500" *ngIf="serie">
+    <img class="responsive-img" src="{{serie.images.banner}}">
+  </mz-parallax>
 
-    <div class="col s8 poster">
-      <img *ngIf="serie.images.poster != '' " src="{{serie.images.poster}}">
-      <img class="notAvailable" *ngIf="serie.images.poster === null " src="../../../assets/images/not_available.jpg">
-    </div>
+  <div class="container">
+    <div *ngIf="serie">
 
-    <div class="col s4">
-      <span *ngIf="serie.genres.length != 0" class="col s12 genre"> [ {{serie.genres}} ] </span>
-      <span *ngIf="serie.creation != '0'" class="col s12 year"> Sortie en : {{serie.creation}}</span>
-      <span *ngIf="serie.creation == '0'" class="col s12 year"> Pas de date de sortie</span>
-      <div class="col s12 language"> Langue : {{serie.language}}</div>
+      <h4 class="title center-align">{{serie.title}} ({{serie.creation}})</h4>
 
-      <div *ngIf="serie.description != ''" class="col s12 description">
-        <label> Résumé </label>
-        <p> {{serie.description}} </p>
+      <div class="row">
+
+        <div class="col s12 m6 center-align">
+          <img class="responsive-img z-depth-3" style="height: 500px" src="{{serie.images.poster}}">
+        </div>
+
+        <div class="col s12 m6">
+          <div class="row">
+            <mz-badge
+              *ngFor="let genre of serie.genres"
+              [badgeClass]="'teal'"
+              [value]="genre"
+              [caption]="''"
+              [new]="true">
+            </mz-badge>
+          </div>
+          <div class="row pres">
+            <div class="col s12 center-align">
+              <h4 class="nbSeasons">{{serie.seasons}}</h4>
+              <h5>saisons</h5>
+              <h6>{{serie.episodes}} épisodes</h6>
+              <h6 class="episodeLength"><i mz-icon-mdi icon="clock"></i> {{serie.length}}&nbsp;minutes</h6>
+            </div>
+          </div>
+
+          <div class="col s12 synopsis">
+            <h4> Résumé </h4>
+            <p> {{serie.description}} </p>
+          </div>
+
+        </div>
       </div>
-
     </div>
   </div>
+
 </div>
