@@ -59,9 +59,9 @@ export class MoviesService extends BetaSeriesService {
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
       let options = new RequestOptions({ headers: headers });
       let urlParams = this.preparePostParameters(id);
-      let postFavoriteMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.postToSee}`;
+      let postToSeeMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.postToSee}`;
       return this.http
-          .post(postFavoriteMovieUrl, urlParams, options)
+          .post(postToSeeMovieUrl, urlParams, options)
           .toPromise()
           .then()
           .catch(this.handleError);
