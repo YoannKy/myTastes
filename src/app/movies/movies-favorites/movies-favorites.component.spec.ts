@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { MoviesFavoritesComponent } from './movies-favorites.component';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterializeModule } from 'ng2-materialize';
 
 describe('MoviesFavoritesComponent', () => {
   let component: MoviesFavoritesComponent;
@@ -8,7 +11,8 @@ describe('MoviesFavoritesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MoviesFavoritesComponent ]
+      imports: [HttpModule, RouterTestingModule, ReactiveFormsModule, FormsModule, MaterializeModule],
+      declarations: [ MoviesFavoritesComponent ],
     })
     .compileComponents();
   }));

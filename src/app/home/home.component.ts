@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.token = localStorage.getItem('access_token_api');
-    console.log(this.token);
   }
 
 }
