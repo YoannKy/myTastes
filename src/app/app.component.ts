@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav();
     this.isConnectedToBetaSeries = localStorage.getItem('access_token_api') !== null;
   }
 }
