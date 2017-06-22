@@ -21,7 +21,22 @@
   </div>
 </nav>
 
-<a href="https://www.betaseries.com/authorize?client_id=fec5a9ca0aa3&redirect_uri=http://localhost:4200/redirect">Link</a>
+<div class="ConnectedStatus">
+  <div class="chip" [class.connected]="auth.isAuthenticated()" [class.notconnected]="!auth.isAuthenticated()">
+    <img src="../assets/images/MyTastes.png" alt="Connected status">
+    <span>MyTaste</span>
+  </div>
+  <a *ngIf="!isConnectedToBetaSeries" href="https://www.betaseries.com/authorize?client_id=fec5a9ca0aa3&redirect_uri=http://localhost:4200/redirect">
+    <div class="chip notconnected">
+        <img src="../assets/images/BS.jpg" alt="Connected status">
+        <span>BetaSeries</span>
+    </div>
+  </a>
+  <div *ngIf="isConnectedToBetaSeries" class="chip connected">
+      <img src="../assets/images/BS.jpg" alt="Connected status">
+      <span>BetaSeries</span>
+  </div>
+</div>
 
 
 <router-outlet></router-outlet>

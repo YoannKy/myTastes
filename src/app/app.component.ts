@@ -9,14 +9,15 @@ import { Location } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  isConnectedToBetaSeries: boolean = false;
   myHome: boolean;
 
   constructor(public auth: AuthService, private location: Location) {
     auth.handleAuthentication();
-    console.log(this.location.isCurrentPathEqualTo('/'));
   }
 
   ngOnInit() {
-    // $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav();
+    this.isConnectedToBetaSeries = localStorage.getItem('access_token_api') !== null;
   }
 }

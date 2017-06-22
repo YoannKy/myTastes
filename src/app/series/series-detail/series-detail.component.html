@@ -38,7 +38,10 @@
             <h4> Résumé </h4>
             <p> {{serie.description}} </p>
           </div>
-        <button (click)="addFavorite(serie.id)">addFav</button>
+
+          <div class="row col s12 right-align add-to-fav-btn">
+            <a class="waves-effect waves-light btn" [class.disabled]="!isConnectedToBetaSeries" (click)="isConnectedToBetaSeries && addFavorite(serie.id)"><i mz-icon-mdi icon="heart"></i> Ajouter à vos favoris</a>
+          </div>
         </div>
       </div>
     </div>

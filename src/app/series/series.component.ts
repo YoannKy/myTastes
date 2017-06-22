@@ -42,8 +42,8 @@ export class SeriesComponent implements OnInit {
 
   ngOnInit() {
     this.getSeries();
-    // this.searchInputControl.valueChanges
-    //   .debounceTime(500)
-    //   .subscribe(newValue => {this.searchInput = newValue; this.getSeries()});
+    this.searchInputControl.valueChanges
+      .debounceTime(500)
+      .subscribe(newValue => {this.searchInput = newValue; this.getSeries()});
   }
 }

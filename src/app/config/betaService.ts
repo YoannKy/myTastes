@@ -10,7 +10,7 @@ export const BETA_SERIES = {
     favorites : 'movies/favorites'
   },
   series : {
-    list : 'shows/list',
+    list : 'shows/search',
     show : 'shows/display',
     postShow: 'shows/show',
     postFavorite : 'shows/favorite',

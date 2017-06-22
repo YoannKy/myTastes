@@ -2,27 +2,6 @@
   background-color: #610102;
 }
 
-
-.home img{
-  width: 350px;
-  height: 500px;
- }
-
-.home a{
-  color: #424242;
-}
-
-.home .movie{
-  text-align: center;
-}
-.home .serie{
-  text-align: center;
-}
-
-.home span{
-  font-size: 35px;
-}
-
 .text{
   margin-top: 20%;
   font-size: 25px;
@@ -31,4 +10,20 @@
 
 .nav-wrapper .brand-logo{
   margin-left: 50px;
+}
+
+.ConnectedStatus{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+.ConnectedStatus span{
+  color: #e4e4e4;
+}
+
+.connected{
+  background-color: #388e3c;
+}
+.notconnected span{
+  color: #424242;
 }

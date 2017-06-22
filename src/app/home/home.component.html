@@ -1,32 +1,30 @@
-<h4 *ngIf="auth.isAuthenticated()">
-  You are logged in!
-</h4>
-<h4 *ngIf="!auth.isAuthenticated()"> -->
-  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
-</h4>
-
 <div class="row">
   <div class="home col s12">
 
       <div class="movie col s5">
         <div class="row">
-          <span> Movies </span>
+          <span> Films </span>
         </div>
         <div class="row">
-          <a *ngIf="auth.isAuthenticated()" routerLink="/movies"><img class="responsive-img z-depth-3" src="../assets/images/avatarPoster.jpg"></a>
+          <a routerLink="/movies" *ngIf="auth.isAuthenticated()"><img class="responsive-img z-depth-3" src="../assets/images/avatarPoster.jpg"></a>
+          <img *ngIf="!auth.isAuthenticated()" class="responsive-img z-depth-3" src="../assets/images/avatarPoster.jpg">
         </div>
       </div>
 
     <div class="text col s2">
       <p> Retrouvez notre sélection </p>
+      <p *ngIf="!auth.isAuthenticated()">
+        <a (click)="auth.login()">Connectez-vous</a> pour y accéder.
+      </p>
     </div>
 
       <div class="serie col s5">
         <div class="row">
-          <span> Series</span>
+          <span> Séries</span>
         </div>
         <div class="row">
-          <a *ngIf="auth.isAuthenticated()" routerLink="/series"><img class="responsive-img z-depth-3" src="../assets/images/Game_of_Thrones.jpg"></a>
+          <a routerLink="/series" *ngIf="auth.isAuthenticated()"><img class="responsive-img z-depth-3" src="../assets/images/Game_of_Thrones.jpg"></a>
+          <img *ngIf="!auth.isAuthenticated()" class="responsive-img z-depth-3" src="../assets/images/Game_of_Thrones.jpg">
         </div>
       </div>
 

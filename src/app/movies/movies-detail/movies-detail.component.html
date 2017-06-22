@@ -33,9 +33,13 @@
             <p> {{movie.synopsis}} </p>
           </div>
 
+          <div class="row col s12 right-align add-to-fav-btn">
+            <a class="waves-effect waves-light btn" [class.disabled]="!isConnectedToBetaSeries" (click)="isConnectedToBetaSeries && addFavorite(movie.id)"><i mz-icon-mdi icon="heart"></i> Ajouter à vos favoris</a>
+          </div>
         </div>
+
       </div>
-      <button (click)="addFavorite(movie.id)">addFav</button>
+
     </div>
   </div>
 
