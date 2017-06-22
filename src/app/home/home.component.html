@@ -35,12 +35,16 @@
 
 
 <div class="ConnectedStatus">
-  <div class="chip" [class.connected]="auth.isAuthenticated()" [class.notconnected]="!auth.isAuthenticated()">
-    <img src="../assets/images/MyTastes.png" alt="Connected status">
-    <span>MyTaste</span>
-  </div>
-  <div class="chip" [class.connected]="token !== null" [class.notconnected]="token === null">
-    <img src="../assets/images/BS.jpg" alt="Connected status">
-    <span>BetaSeries</span>
-  </div>
+
+    <div class="chip" [class.connected]="auth.isAuthenticated()" [class.notconnected]="!auth.isAuthenticated()">
+      <img src="../assets/images/MyTastes.png" alt="Connected status">
+      <span>MyTaste</span>
+    </div>
+
+  <a href="https://www.betaseries.com/authorize?client_id=fec5a9ca0aa3&redirect_uri=http://localhost:4200/redirect">
+    <div class="chip" [class.connected]="token !== null" [class.notconnected]="token === null">
+      <img src="../assets/images/BS.jpg" alt="Connected status">
+      <span>BetaSeries</span>
+    </div>
+  </a>
 </div>
