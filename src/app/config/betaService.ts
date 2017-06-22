@@ -9,7 +9,9 @@ export const BETA_SERIES = {
     postToSee: 'movies/movie',
   },
   series : {
-    list : 'shows/list'
+    list : 'shows/list',
+    postArchive: 'shows/archive',
+    postFavorite : 'shows/favorite'
   },
 
   apiAuth : {
