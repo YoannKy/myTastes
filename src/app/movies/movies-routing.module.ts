@@ -7,12 +7,12 @@ const routes: Routes = [
   {
      path: 'movies',
      component: MoviesComponent,
-     children: [
-      {
-          path: "detail/:id",
-          component: MoviesDetailComponent}
-    ]
+
   },
+  {
+     path: "movies/detail/:id",
+     component: MoviesDetailComponent
+   }
 ];
 
 @NgModule({

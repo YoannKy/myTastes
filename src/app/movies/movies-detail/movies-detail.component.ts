@@ -7,7 +7,8 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'app-movies-detail',
   templateUrl: './movies-detail.component.html',
-  styleUrls: ['./movies-detail.component.css']
+  styleUrls: ['./movies-detail.component.css'],
+  providers: [MoviesService]
 })
 export class MoviesDetailComponent implements OnInit {
   movie: MovieDetails;

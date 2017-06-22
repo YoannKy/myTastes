@@ -26,7 +26,7 @@ export class MoviesService extends BetaSeriesService {
   }
 
   getMovie(id: number): Promise<MovieDetails> {
-    let getMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.show}/${id}?v=${this.apiVersion}&key=${this.apiKey}`;
+    let getMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.show}?v=${this.apiVersion}&key=${this.apiKey}&id=${id}`;
     return this.http.get(getMovieUrl)
       .toPromise()
       .then(response => response.json().movie as Movie)
