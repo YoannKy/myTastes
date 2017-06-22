@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <mz-collection class="scale-transition scale-out" *ngIf="loading === false && movies.length > 0">
+  <mz-collection class="scale-transition scale-out myCollection" *ngIf="loading === false && movies.length > 0">
     <a *ngFor="let movie of movies" mz-collection-link [routerLink]="['/movies/detail', movie.id]">{{movie.title}}</a>
   </mz-collection>
 
