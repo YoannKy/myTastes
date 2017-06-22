@@ -10,15 +10,29 @@ import { Serie } from './model/serie';
 })
 export class SeriesComponent implements OnInit {
   series: Serie[];
+  start: number = 0;
+  limit: number = 20;
   getSeries(): void {
     this.seriesService
-      .getSeries()
+      .getSeries({start: this.start, limit: this.limit})
       .then((series) => {
         console.log(series);
         this.series = series;
       });
   };
   constructor(private seriesService: SeriesService) { }
+
+  pageUp(): void {
+    this.start += this.limit;
+    this.getSeries();
+  }
+
+  pageDown(): void {
+    if (this.start - this.limit >= 0) {
+      this.start -= this.limit;
+      this.getSeries();
+    }
+  }
 
   ngOnInit() {
     this.getSeries();

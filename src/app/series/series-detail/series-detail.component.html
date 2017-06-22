@@ -1,0 +1,24 @@
+<div *ngIf="serie">
+  <h2>{{serie.title}}</h2>
+
+  <div class="row">
+
+    <div class="col s8 poster">
+      <img *ngIf="serie.images.poster != '' " src="{{serie.images.poster}}">
+      <img class="test" *ngIf="serie.images.poster === null " src="../../../assets/images/not_available.jpg">
+    </div>
+
+    <div class="col s4">
+      <span *ngIf="serie.genres.length != 0" class="col s12 genre"> [ {{serie.genres}} ] </span>
+      <span *ngIf="serie.creation != '0'" class="col s12 year"> Sortie en : {{serie.creation}}</span>
+      <span *ngIf="serie.creation == '0'" class="col s12 year"> Pas de date de sortie</span>
+      <div class="col s12 language"> Langue : {{serie.language}}</div>
+
+      <div *ngIf="serie.description != ''" class="col s12 description">
+        <label> Résumé </label>
+        <p> {{serie.description}} </p>
+      </div>
+
+    </div>
+  </div>
+</div>
