@@ -1,6 +1,9 @@
 .header{
   text-align: center;
 }
+nav{
+  margin-bottom: 20px;
+}
 
 h1{
   color: #c9c9c9;
