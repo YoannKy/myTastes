@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {BetaSeriesService} from './beta-series.service';
 
-import { MoviesModule } from './movies/movies.module';
 import { HomeModule } from './home/home.module';
 import { CallbackModule } from './callback/callback.module';
 
@@ -27,8 +26,8 @@ import { MaterializeModule } from 'ng2-materialize';
     CallbackModule,
     MaterializeModule.forRoot(),
     AppRoutingModule
-  providers: [AuthService],
   ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
   })
 export class AppModule { }
