@@ -20,8 +20,8 @@ private homeId
   	this.activatedRoute.queryParams.subscribe(params => {
   		let code = params.code;
   		if (typeof(code) != 'undefined') {
-  		    this.callbackHttpService.postAccessToken(code);
-          this.router.navigate(['/']);
+  		    this.callbackHttpService.postAccessToken(code)
+            .then(() => this.router.navigate(['/']));
   		}
     });
   }
