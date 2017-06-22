@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
+
 import { SeriesService } from './services/series.service';
 import { Serie } from './model/serie';
 
@@ -10,31 +12,39 @@ import { Serie } from './model/serie';
 })
 export class SeriesComponent implements OnInit {
   series: Serie[];
-  start: number = 0;
+  loading: boolean = true;
+  page: number = 1;
   limit: number = 20;
+  searchInput: string = '';
+  searchInputControl = new FormControl();
   getSeries(): void {
+    this.loading = true;
     this.seriesService
-      .getSeries({start: this.start, limit: this.limit})
+      .getSeries({page: this.page, limit: this.limit, title: this.searchInput})
       .then((series) => {
         console.log(series);
         this.series = series;
+        this.loading = false;
       });
   };
   constructor(private seriesService: SeriesService) { }
 
   pageUp(): void {
-    this.start += this.limit;
+    this.page++;
     this.getSeries();
   }
 
   pageDown(): void {
-    if (this.start - this.limit >= 0) {
-      this.start -= this.limit;
+    if (this.page >= 0) {
+      this.page--;
       this.getSeries();
     }
   }
 
   ngOnInit() {
     this.getSeries();
+    this.searchInputControl.valueChanges
+      .debounceTime(500)
+      .subscribe(newValue => {this.searchInput = newValue; this.getSeries()});
   }
 }

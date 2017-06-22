@@ -7,7 +7,7 @@ export const BETA_SERIES = {
     show : 'movies/movie'
   },
   series : {
-    list : 'shows/list',
+    list : 'shows/search',
     show : 'shows/display'
   }
 };
