@@ -5,7 +5,7 @@
 
     <div class="col s8 poster">
       <img *ngIf="serie.images.poster != '' " src="{{serie.images.poster}}">
-      <img class="test" *ngIf="serie.images.poster === null " src="../../../assets/images/not_available.jpg">
+      <img class="notAvailable" *ngIf="serie.images.poster === null " src="../../../assets/images/not_available.jpg">
     </div>
 
     <div class="col s4">
