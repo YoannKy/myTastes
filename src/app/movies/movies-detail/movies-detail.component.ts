@@ -23,4 +23,12 @@ export class MoviesDetailComponent implements OnInit {
       .switchMap((params: Params) => this.moviesService.getMovie(+params['id']))
       .subscribe(movie => this.movie = movie);
   }
+
+  addFavorite(id: string) {
+    this.moviesService.postFavoriteMovie(id);
+  }
+
+  addToSee(id: string) {
+    this.moviesService.postToSeeMovie(id);
+  }
 }
