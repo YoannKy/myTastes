@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { SeriesRoutingModule } from './series-routing.module';
 import { SeriesComponent } from './series.component';
+import { SeriesDetailComponent } from './series-detail/series-detail.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import { SeriesComponent } from './series.component';
     SeriesRoutingModule,
     HttpModule
   ],
-  declarations: [SeriesComponent]
+  declarations: [SeriesComponent, SeriesDetailComponent, SeriesDetailComponent]
 })
 export class SeriesModule { }

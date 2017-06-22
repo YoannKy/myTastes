@@ -1,0 +1,15 @@
+h2{
+  text-align: center;
+}
+
+.description{
+  margin-top: 50px;
+}
+
+.poster img{
+  max-width: 550px;
+}
+
+.test{
+  width: 450px;
+}

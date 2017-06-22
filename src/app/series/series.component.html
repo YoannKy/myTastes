@@ -1,3 +1,10 @@
 <ul>
-  <li *ngFor="let serie of series">{{serie.title}}</li>
+  <li *ngFor="let serie of series">
+    <a [routerLink]="['/series/detail', serie.id]">{{serie.title}}</a>
+  </li>
+</ul>
+
+<ul class="pagination">
+  <li [class.disabled]="start === 0"><a (click)="pageDown()" class="waves-effect"><i mz-icon-mdi icon="chevron-left"></i> Previous</a></li>
+  <li><a (click)="pageUp()" class="waves-effect">Next <i mz-icon-mdi icon="chevron-right"></i></a></li>
 </ul>
