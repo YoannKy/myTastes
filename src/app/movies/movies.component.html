@@ -1,10 +1,62 @@
-<ul>
-  <li *ngFor="let movie of movies">
-    <a [routerLink]="['/movies/detail', movie.id]">{{movie.title}}</a>
-  </li>
-</ul>
+<div class="row">
+  <div class="input-field col s4 offset-s4">
+    <i mz-icon-mdi icon="movie" class="prefix"></i>
+    <input id="movieInput" type="text" [value]="searchInput" [formControl]="searchInputControl">
+    <label for="movieInput">Find a Movie</label>
+  </div>
+</div>
 
-<ul class="pagination">
-  <li [class.disabled]="start === 0"><a (click)="pageDown()" class="waves-effect"><i mz-icon-mdi icon="chevron-left"></i> Previous</a></li>
+<div class="row center-align" *ngIf="loading === true">
+  <div class="preloader-wrapper big active center-align">
+    <div class="spinner-layer spinner-blue">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="spinner-layer spinner-red">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="spinner-layer spinner-yellow">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="spinner-layer spinner-green">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mz-collection class="scale-transition scale-out" *ngIf="loading === false && movies.length > 0">
+  <a *ngFor="let movie of movies" mz-collection-link [routerLink]="['/detail', movie.id]">{{movie.title}}</a>
+</mz-collection>
+
+<h5 *ngIf="loading === false && movies.length === 0" class="center-align">No results</h5>
+
+<ul class="pagination center-align" *ngIf="loading === false">
+  <li [class.disabled]="page === 1"><a (click)="pageDown()" class="waves-effect"><i mz-icon-mdi icon="chevron-left"></i> Previous</a></li>
   <li><a (click)="pageUp()" class="waves-effect">Next <i mz-icon-mdi icon="chevron-right"></i></a></li>
 </ul>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
+
 import { MoviesService } from './services/movies.service';
 import { Movie } from './model/movie';
 
@@ -10,33 +12,41 @@ import { Movie } from './model/movie';
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[];
-  start: number = 0;
+  loading: boolean = true;
+  page: number = 1;
   limit: number = 20;
+  searchInput: string = '';
+  searchInputControl = new FormControl();
   constructor(private moviesService: MoviesService) {
   }
 
   getMovies(): void {
+    this.loading = true;
     this.moviesService
-    .getMovies({start: this.start, limit: this.limit})
+    .getMovies({page: this.page, limit: this.limit, title: this.searchInput})
     .then((movies) => {
       this.movies = movies;
+      this.loading = false;
     });
   };
 
   pageUp(): void {
-    this.start += this.limit;
+    this.page++;
     this.getMovies();
   }
 
   pageDown(): void {
-    if(this.start - this.limit >= 0) {
-      this.start -= this.limit;
+    if(this.page >= 0) {
+      this.page--;
       this.getMovies();
     }
   }
 
   ngOnInit() {
-      this.getMovies();
+    this.getMovies();
+    this.searchInputControl.valueChanges
+      .debounceTime(500)
+      .subscribe(newValue => {this.searchInput = newValue; this.getMovies()});
   }
 
 }

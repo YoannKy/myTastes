@@ -3,7 +3,7 @@ export const BETA_SERIES = {
   apiKey: 'fec5a9ca0aa3',
   apiVersion: '2.4',
   movies : {
-    list : 'movies/list',
+    list : 'movies/search',
     show : 'movies/movie'
   },
   series : {
