@@ -19,7 +19,6 @@ import { MaterializeModule } from 'ng2-materialize';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     MoviesModule,
     SeriesModule,
     HomeModule,
