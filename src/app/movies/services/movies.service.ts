@@ -4,6 +4,7 @@ import { BetaSeriesService } from '../../beta-series.service';
 import { Movie } from '../model/movie';
 import 'rxjs/add/operator/toPromise';
 import { BETA_SERIES } from '../../config/betaService';
+import {MovieDetails} from '../model/movieDetails';
 
 @Injectable()
 export class MoviesService extends BetaSeriesService {
@@ -24,8 +25,8 @@ export class MoviesService extends BetaSeriesService {
     return Promise.reject(error.message || error);
   }
 
-  getMovie(): Promise<Movie> {
-    let getMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.show}?v=${this.apiVersion}&key=${this.apiKey}`;
+  getMovie(id: number): Promise<MovieDetails> {
+    let getMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.show}/${id}?v=${this.apiVersion}&key=${this.apiKey}`;
     return this.http.get(getMovieUrl)
       .toPromise()
       .then(response => response.json().movie as Movie)

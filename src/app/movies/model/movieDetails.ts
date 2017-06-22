@@ -1,4 +1,4 @@
-export class Movie {
+export class MovieDetails {
   id: number;
   title: string;
   poster: string;

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
-import { movieDetail } from '../model/movieDetail';
+import { MovieDetails } from '../model/movieDetails';
+import {ActivatedRoute, Params} from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-movies-detail',
@@ -8,10 +10,16 @@ import { movieDetail } from '../model/movieDetail';
   styleUrls: ['./movies-detail.component.css']
 })
 export class MoviesDetailComponent implements OnInit {
+  movie: MovieDetails;
 
-  constructor() { }
+  constructor(
+    private moviesService: MoviesService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.route.params
+      .switchMap((params: Params) => this.moviesService.getMovie(+params['id']))
+      .subscribe(movie => this.movie = movie);
   }
-
 }
