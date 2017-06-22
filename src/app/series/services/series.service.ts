@@ -14,7 +14,7 @@ export class SeriesService extends BetaSeriesService {
   }
 
   getSeries(params): Promise<Serie[]> {
-    const getSeriesUrl = `${this.baseUrl}${BETA_SERIES.series.list}?v=${this.apiVersion}&key=${this.apiKey}&limit=300&start=${params.start}&limit=${params.limit}`;
+    const getSeriesUrl = `${this.baseUrl}${BETA_SERIES.series.list}?v=${this.apiVersion}&key=${this.apiKey}&page=${params.page}&nbpp=${params.limit}&title=${params.title}`;
     return this.http.get(getSeriesUrl)
       .toPromise()
       .then(response => response.json().shows as Serie[])
