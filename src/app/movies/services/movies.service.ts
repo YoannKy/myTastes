@@ -20,6 +20,15 @@ export class MoviesService extends BetaSeriesService {
            .catch(this.handleError);
   }
 
+  getFavoriteMovies(): Promise<Movie[]> {
+    let getFavoriteMoviesUrl = `${this.baseUrl}${BETA_SERIES.movies.favorites}?v=${this.apiVersion}&key=${this.apiKey}&access_token=${localStorage.getItem('access_token_api')}`;
+    console.log(getFavoriteMoviesUrl);
+    return this.http.get(getFavoriteMoviesUrl)
+           .toPromise()
+           .then(response => response.json().movies as Movie[])
+           .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);

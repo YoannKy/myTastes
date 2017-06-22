@@ -1,21 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpModule } from '@angular/http';
-import { SeriesComponent } from './series.component';
 
-describe('SeriesComponent', () => {
-  let component: SeriesComponent;
-  let fixture: ComponentFixture<SeriesComponent>;
+import { MoviesFavoritesComponent } from './movies-favorites.component';
+
+describe('MoviesFavoritesComponent', () => {
+  let component: MoviesFavoritesComponent;
+  let fixture: ComponentFixture<MoviesFavoritesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpModule],
-      declarations: [ SeriesComponent ]
+      declarations: [ MoviesFavoritesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SeriesComponent);
+    fixture = TestBed.createComponent(MoviesFavoritesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
