@@ -4,6 +4,6 @@ export class MovieDetails {
   poster: string;
   production_year: string;
   genres: string[];
-  synopsys: string;
+  synopsis: string;
   language: string;
 }

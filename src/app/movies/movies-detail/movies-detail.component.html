@@ -1,3 +1,22 @@
 <div *ngIf="movie">
-  <h2>{{movie.title}} details!</h2>
+  <h2>{{movie.title}}</h2>
+
+  <div class="row">
+
+    <div class="col s8">
+      <img src="{{movie.poster}}">
+    </div>
+
+    <div class="col s4">
+      <span class="col s12 genre"> [ {{movie.genres}} ] </span>
+      <span class="col s12 year"> Sortie en : {{movie.production_year}}</span>
+      <div class="col s12 language"> Langue : {{movie.language}}</div>
+
+      <div class="col s12 synopsis">
+        <label> Résumé </label>
+        <p> {{movie.synopsis}} </p>
+      </div>
+
+    </div>
+  </div>
 </div>
