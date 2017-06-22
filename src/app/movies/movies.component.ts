@@ -10,14 +10,30 @@ import { Movie } from './model/movie';
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[];
+  start: number = 0;
+  limit: number = 20;
+  constructor(private moviesService: MoviesService) {
+  }
+
   getMovies(): void {
-      this.moviesService
-      .getMovies()
-      .then((movies) => {
-          this.movies = movies;
-      });
+    this.moviesService
+    .getMovies({start: this.start, limit: this.limit})
+    .then((movies) => {
+      this.movies = movies;
+    });
   };
-  constructor(private moviesService: MoviesService) { }
+
+  pageUp(): void {
+    this.start += this.limit;
+    this.getMovies();
+  }
+
+  pageDown(): void {
+    if(this.start - this.limit >= 0) {
+      this.start -= this.limit;
+      this.getMovies();
+    }
+  }
 
   ngOnInit() {
       this.getMovies();

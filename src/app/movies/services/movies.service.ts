@@ -11,8 +11,8 @@ export class MoviesService extends BetaSeriesService {
     super();
   }
 
-  getMovies(): Promise<Movie[]> {
-    let getMoviesUrl = `${this.baseUrl}${BETA_SERIES.movies.list}?v=${this.apiVersion}&key=${this.apiKey}`;
+  getMovies(params): Promise<Movie[]> {
+    let getMoviesUrl = `${this.baseUrl}${BETA_SERIES.movies.list}?v=${this.apiVersion}&key=${this.apiKey}&start=${params.start}&limit=${params.limit}`;
     return this.http.get(getMoviesUrl)
            .toPromise()
            .then(response => response.json().movies as Movie[])
