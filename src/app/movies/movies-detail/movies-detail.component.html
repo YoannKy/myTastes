@@ -8,11 +8,12 @@
     </div>
 
     <div class="col s4">
-      <span class="col s12 genre"> [ {{movie.genres}} ] </span>
-      <span class="col s12 year"> Sortie en : {{movie.production_year}}</span>
+      <span *ngIf="movie.genres.length != 0" class="col s12 genre"> [ {{movie.genres}} ] </span>
+      <span *ngIf="movie.production_year != '0'" class="col s12 year"> Sortie en : {{movie.production_year}}</span>
+      <span *ngIf="movie.production_year == '0'" class="col s12 year"> Pas de date de sortie</span>
       <div class="col s12 language"> Langue : {{movie.language}}</div>
 
-      <div class="col s12 synopsis">
+      <div *ngIf="movie.synopsis != ''" class="col s12 synopsis">
         <label> Résumé </label>
         <p> {{movie.synopsis}} </p>
       </div>
