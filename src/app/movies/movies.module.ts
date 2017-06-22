@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MoviesComponent } from './movies.component';
 import { HttpModule } from '@angular/http';
 import { MoviesRoutingModule } from './movies-routing.module';
+import { RandomMoviesComponent } from './random-movies/random-movies.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import { MoviesRoutingModule } from './movies-routing.module';
     MoviesRoutingModule,
     HttpModule
   ],
-  declarations: [MoviesComponent]
+  declarations: [MoviesComponent, RandomMoviesComponent]
 })
 export class MoviesModule { }

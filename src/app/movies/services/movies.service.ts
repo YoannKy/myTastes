@@ -23,4 +23,12 @@ export class MoviesService extends BetaSeriesService {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
+
+  getMovie(): Promise<Movie> {
+    let getMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.show}?v=${this.apiVersion}&key=${this.apiKey}`;
+    return this.http.get(getMovieUrl)
+      .toPromise()
+      .then(response => response.json().movie as Movie)
+      .catch(this.handleError);
+  }
 }
