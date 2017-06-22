@@ -17,7 +17,7 @@ const routes: Routes = [
    {
       path: "movies/favorites",
       component: MoviesFavoritesComponent
-    }
+   }
 ];
 
 @NgModule({

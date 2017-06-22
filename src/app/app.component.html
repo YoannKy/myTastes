@@ -6,14 +6,16 @@
       <li><a *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Log In</a></li>
       <li><a *ngIf="auth.isAuthenticated()" routerLink="/movies">Movies</a></li>
       <li><a *ngIf="auth.isAuthenticated()" routerLink="/series">Series</a></li>
-      <li><a *ngIf="auth.isAuthenticated()" routerLink="/movies/favorites">My favorites</a></li>
+      <li><a *ngIf="auth.isAuthenticated()" routerLink="/series/favorites">My series</a></li>
+      <li><a *ngIf="auth.isAuthenticated()" routerLink="/movies/favorites">My movies</a></li>
       <li><a *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Log out</a></li>
     </ul>
     <ul id="nav-mobile" class="side-nav">
       <li><a *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Log In</a></li>
       <li><a *ngIf="auth.isAuthenticated()" routerLink="/movies">Movies</a></li>
       <li><a *ngIf="auth.isAuthenticated()" routerLink="/series">Series</a></li>
-      <li><a *ngIf="auth.isAuthenticated()" routerLink="/movies/favorites">My favorites</a></li>
+      <li><a *ngIf="auth.isAuthenticated()" routerLink="/series/favorites">My series</a></li>
+      <li><a *ngIf="auth.isAuthenticated()" routerLink="/movies/favorites">My movies</a></li>
       <li><a *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Log out</a></li>
     </ul>
   </div>

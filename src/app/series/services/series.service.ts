@@ -33,10 +33,17 @@ export class SeriesService extends BetaSeriesService {
       .catch(this.handleError);
   }
 
+  getFavoriteSeries(): Promise<Serie[]> {
+    let getFavoriteSeriesUrl = `${this.baseUrl}${BETA_SERIES.series.favorites}?v=${this.apiVersion}&key=${this.apiKey}&access_token=${localStorage.getItem('access_token_api')}`;
+    return this.http.get(getFavoriteSeriesUrl)
+        .toPromise()
+        .then(response => response.json().shows as Serie[])
+        .catch(this.handleError);
+  }
+
   private preparePostParameters(id: string)
   {
     let urlParams = new URLSearchParams();
-    console.log(BETA_SERIES.apiKey);
     urlParams.append('key', BETA_SERIES.apiKey);
     urlParams.append('access_token', localStorage.getItem('access_token_api'));
     urlParams.append('id', id);
