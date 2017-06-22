@@ -12,8 +12,9 @@ export const BETA_SERIES = {
   series : {
     list : 'shows/list',
     show : 'shows/display',
-    postArchive: 'shows/archive',
-    postFavorite : 'shows/favorite'
+    postShow: 'shows/show',
+    postFavorite : 'shows/favorite',
+    favorites : 'shows/favorites'
   },
 
   apiAuth : {
