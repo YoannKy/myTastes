@@ -12,6 +12,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class MoviesDetailComponent implements OnInit {
   movie: MovieDetails;
+  isConnectedToBetaSeries: boolean = false;
 
   constructor(
     private moviesService: MoviesService,
@@ -26,5 +27,6 @@ export class MoviesDetailComponent implements OnInit {
 
   addFavorite(id: string) {
     this.moviesService.postToSeeMovie(id);
+    this.isConnectedToBetaSeries = localStorage.getItem('access_token_api') !== null;
   }
 }

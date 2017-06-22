@@ -18,3 +18,10 @@
 .pres {
   margin-top: 50px;
 }
+.add-to-fav-btn {
+  margin-top: 20px;
+}
+
+.add-to-fav-btn i {
+  vertical-align: middle;
+}

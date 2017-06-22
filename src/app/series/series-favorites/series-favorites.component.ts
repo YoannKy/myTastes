@@ -9,9 +9,12 @@ import { SeriesService } from '../services/series.service';
 })
 export class SeriesFavoritesComponent implements OnInit {
   series: Serie[];
+  isConnectedToBetaSeries: boolean = false;
   constructor(
       private seriesService: SeriesService
-  ) {}
+  ) {
+    this.isConnectedToBetaSeries = localStorage.getItem('access_token_api') !== null;
+  }
 
   getFavoriteSeries(): void {
     this.seriesService
@@ -21,6 +24,8 @@ export class SeriesFavoritesComponent implements OnInit {
         });
   };
   ngOnInit() {
-    this.getFavoriteSeries();
+    if(this.isConnectedToBetaSeries === true) {
+      this.getFavoriteSeries();
+    }
   }
 }

@@ -1,5 +1,8 @@
 <div class="container movies-section">
-  <mz-collection class="scale-transition scale-out" *ngIf="movies && movies.length > 0">
+  <h4 class="center-align" *ngIf="!isConnectedToBetaSeries"><a href="https://www.betaseries.com/authorize?client_id=fec5a9ca0aa3&redirect_uri=http://localhost:4200/redirect">Coonectez-vous</a> à Beta-series pour accéder à vos films favoris</h4>
+  <h4 class="center-align" *ngIf="isConnectedToBetaSeries">Vos films favoris</h4>
+  <mz-collection class="scale-transition scale-out myCollection" *ngIf="movies && movies.length > 0">
     <a *ngFor="let movie of movies" mz-collection-link [routerLink]="['/movies/detail', movie.id]">{{movie.title}}</a>
   </mz-collection>
+  <h4 class="center-align" *ngIf="movies && movies.length === 0">Vous n'avez pas encore ajouté de film à vos favoris</h4>
 </div>

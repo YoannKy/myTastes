@@ -1,5 +1,8 @@
 <div class="container series-section">
-  <mz-collection class="scale-transition scale-out" *ngIf="series && series.length > 0">
+  <h4 class="center-align" *ngIf="!isConnectedToBetaSeries"><a href="https://www.betaseries.com/authorize?client_id=fec5a9ca0aa3&redirect_uri=http://localhost:4200/redirect">Coonectez-vous</a> à Beta-series pour accéder à vos séries favoris</h4>
+  <h4 class="center-align" *ngIf="isConnectedToBetaSeries">Vos séries favorites</h4>
+  <mz-collection class="scale-transition scale-out myCollection" *ngIf="series && series.length > 0">
     <a *ngFor="let serie of series" mz-collection-link [routerLink]="['/series/detail', serie.id]">{{serie.title}}</a>
   </mz-collection>
+  <h4 class="center-align" *ngIf="series && series.length === 0">Vous n'avez pas encore ajouté de séries à vos favoris</h4>
 </div>

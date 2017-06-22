@@ -58,7 +58,7 @@
   <h5 *ngIf="loading === false && movies.length === 0" class="center-align">No results</h5>
 
   <ul class="pagination center-align" *ngIf="loading === false">
-    <li [class.disabled]="page === 1"><a (click)="pageDown()" class="waves-effect"><i mz-icon-mdi icon="chevron-left"></i> Previous</a></li>
+    <li [class.disabled]="page === 1"><a (click)="page > 1 && pageDown()" class="waves-effect"><i mz-icon-mdi icon="chevron-left"></i> Previous</a></li>
     <li><a (click)="pageUp()" class="waves-effect">Next <i mz-icon-mdi icon="chevron-right"></i></a></li>
   </ul>
 </div>

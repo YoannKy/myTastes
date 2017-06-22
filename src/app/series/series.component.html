@@ -58,14 +58,14 @@
     </div>
   </div>
 
-  <mz-collection class="scale-transition scale-out" *ngIf="loading === false && series.length > 0">
+  <mz-collection class="scale-transition scale-out myCollection" *ngIf="loading === false && series.length > 0">
     <a *ngFor="let serie of series" mz-collection-link [routerLink]="['/series/detail', serie.id]">{{serie.title}}</a>
   </mz-collection>
 
   <h5 *ngIf="loading === false && series.length === 0" class="center-align">No results</h5>
 
   <ul class="pagination center-align" *ngIf="loading === false">
-    <li [class.disabled]="page === 1"><a (click)="pageDown()" class="waves-effect"><i mz-icon-mdi icon="chevron-left"></i> Previous</a></li>
+    <li [class.disabled]="page === 1"><a (click)="page > 1 && pageDown()" class="waves-effect"><i mz-icon-mdi icon="chevron-left"></i> Previous</a></li>
     <li><a (click)="pageUp()" class="waves-effect">Next <i mz-icon-mdi icon="chevron-right"></i></a></li>
   </ul>
 </div>
