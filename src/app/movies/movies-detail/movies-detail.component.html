@@ -1,23 +1,41 @@
-<div *ngIf="movie">
-  <h2>{{movie.title}}</h2>
+<div class="movie-detail">
 
-  <div class="row">
+  <mz-parallax [height]="500" *ngIf="movie">
+    <img class="responsive-img" src="{{movie.backdrop}}">
+  </mz-parallax>
 
-    <div class="col s8">
-      <img src="{{movie.poster}}">
-    </div>
+  <div class="container">
+    <div *ngIf="movie">
 
-    <div class="col s4">
-      <span *ngIf="movie.genres.length != 0" class="col s12 genre"> [ {{movie.genres}} ] </span>
-      <span *ngIf="movie.production_year != '0'" class="col s12 year"> Sortie en : {{movie.production_year}}</span>
-      <span *ngIf="movie.production_year == '0'" class="col s12 year"> Pas de date de sortie</span>
-      <div class="col s12 language"> Langue : {{movie.language}}</div>
+      <h4 class="title center-align">{{movie.title}}</h4>
 
-      <div *ngIf="movie.synopsis != ''" class="col s12 synopsis">
-        <label> Résumé </label>
-        <p> {{movie.synopsis}} </p>
+      <div class="row">
+
+        <div class="col s12 m6 center-align">
+          <img class="responsive-img z-depth-3" style="height: 500px" src="{{movie.poster}}">
+        </div>
+
+        <div class="col s12 m6">
+          <div class="row">
+            <mz-badge
+              *ngFor="let genre of movie.genres"
+              [badgeClass]="'teal'"
+              [value]="genre"
+              [caption]="''"
+              [new]="true">
+            </mz-badge>
+          </div>
+          <div class="bold">Date de sortie : {{movie.release_date}}</div>
+          <div class="bold"> Langue : {{movie.language}}</div>
+
+          <div class="col s12 synopsis">
+            <h4> Résumé </h4>
+            <p> {{movie.synopsis}} </p>
+          </div>
+
+        </div>
       </div>
-
     </div>
   </div>
+
 </div>

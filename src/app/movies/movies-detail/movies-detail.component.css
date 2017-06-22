@@ -1,7 +1,10 @@
-h2{
-  text-align: center;
+.movie-detail {
+  margin-bottom: 50px;
 }
 
+.movie-detail .title{
+  margin: 40px 0 60px 0;
+}
 .synopsis{
-  margin-top: 50px;
+  margin-top: 40px;
 }

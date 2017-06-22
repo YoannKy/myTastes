@@ -1,3 +1,8 @@
+.movies-section {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
 .pagination li a i {
   vertical-align: sub;
 }
