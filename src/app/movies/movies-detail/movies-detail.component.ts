@@ -26,6 +26,5 @@ export class MoviesDetailComponent implements OnInit {
 
   addFavorite(id: string) {
     this.moviesService.postToSeeMovie(id);
-    this.moviesService.postFavoriteMovie(id);
   }
 }

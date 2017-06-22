@@ -72,7 +72,7 @@ export class MoviesService extends BetaSeriesService {
       return this.http
           .post(postToSeeMovieUrl, urlParams, options)
           .toPromise()
-          .then()
+          .then(() => this.postFavoriteMovie(id))
           .catch(this.handleError);
     }
 }
