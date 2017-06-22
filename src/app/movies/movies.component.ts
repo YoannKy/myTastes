@@ -14,7 +14,6 @@ export class MoviesComponent implements OnInit {
       this.moviesService
       .getMovies()
       .then((movies) => {
-        console.log(movies);
           this.movies = movies;
       });
   };
