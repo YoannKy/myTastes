@@ -12,16 +12,21 @@ import 'rxjs/add/operator/switchMap';
 })
 export class SeriesDetailComponent implements OnInit {
   serie: SerieDetails;
+  betaSeriesToken: string;
+  isConnectedToBetaSeries: boolean = false;
 
   constructor(private seriesService: SeriesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.betaSeriesToken = localStorage.getItem('access_token_api');
+    this.isConnectedToBetaSeries = this.betaSeriesToken !== null;
     this.route.params
-      .switchMap((params: Params) => this.seriesService.getSerie(+params['id']))
+      .switchMap((params: Params) => this.seriesService.getSerie(+params['id'], this.betaSeriesToken))
       .subscribe(serie => {this.serie = serie;});
   }
 
   addFavorite(id: string) {
     this.seriesService.postSerie(id);
+    this.serie.user.favorited = true;
   }
 }

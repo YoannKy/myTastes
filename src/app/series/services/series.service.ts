@@ -25,8 +25,8 @@ export class SeriesService extends BetaSeriesService {
     return Promise.reject(error.message || error);
   }
 
-  getSerie(id: number): Promise<SerieDetails> {
-    let getSerieUrl = `${this.baseUrl}${BETA_SERIES.series.show}?v=${this.apiVersion}&key=${this.apiKey}&id=${id}`;
+  getSerie(id: number, access_token: string): Promise<SerieDetails> {
+    let getSerieUrl = `${this.baseUrl}${BETA_SERIES.series.show}?v=${this.apiVersion}&key=${this.apiKey}&id=${id}&access_token=${access_token}`;
     return this.http.get(getSerieUrl)
       .toPromise()
       .then(response => response.json().show as Serie)

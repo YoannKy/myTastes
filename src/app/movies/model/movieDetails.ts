@@ -6,4 +6,5 @@ export class MovieDetails {
   genres: string[];
   synopsis: string;
   language: string;
+  user: any;
 }

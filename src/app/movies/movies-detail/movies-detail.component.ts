@@ -12,6 +12,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class MoviesDetailComponent implements OnInit {
   movie: MovieDetails;
+  betaSeriesToken: string;
   isConnectedToBetaSeries: boolean = false;
 
   constructor(
@@ -20,13 +21,15 @@ export class MoviesDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.betaSeriesToken = localStorage.getItem('access_token_api');
+    this.isConnectedToBetaSeries = this.betaSeriesToken !== null;
     this.route.params
-      .switchMap((params: Params) => this.moviesService.getMovie(+params['id']))
+      .switchMap((params: Params) => this.moviesService.getMovie(+params['id'], this.betaSeriesToken))
       .subscribe(movie => {this.movie = movie;});
   }
 
   addFavorite(id: string) {
     this.moviesService.postToSeeMovie(id);
-    this.isConnectedToBetaSeries = localStorage.getItem('access_token_api') !== null;
+    this.movie.user.favorited = true;
   }
 }

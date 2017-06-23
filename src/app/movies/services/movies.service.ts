@@ -22,7 +22,6 @@ export class MoviesService extends BetaSeriesService {
 
   getFavoriteMovies(): Promise<Movie[]> {
     let getFavoriteMoviesUrl = `${this.baseUrl}${BETA_SERIES.movies.favorites}?v=${this.apiVersion}&key=${this.apiKey}&access_token=${localStorage.getItem('access_token_api')}`;
-    console.log(getFavoriteMoviesUrl);
     return this.http.get(getFavoriteMoviesUrl)
            .toPromise()
            .then(response => response.json().movies as Movie[])
@@ -34,8 +33,8 @@ export class MoviesService extends BetaSeriesService {
     return Promise.reject(error.message || error);
   }
 
-  getMovie(id: number): Promise<MovieDetails> {
-    let getMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.show}?v=${this.apiVersion}&key=${this.apiKey}&id=${id}`;
+  getMovie(id: number, access_token: string): Promise<MovieDetails> {
+    let getMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.show}?v=${this.apiVersion}&key=${this.apiKey}&id=${id}&access_token=${access_token}`;
     return this.http.get(getMovieUrl)
       .toPromise()
       .then(response => response.json().movie as Movie)
@@ -45,7 +44,6 @@ export class MoviesService extends BetaSeriesService {
   private preparePostParameters(id: string)
   {
     let urlParams = new URLSearchParams();
-    console.log(BETA_SERIES.apiKey);
     urlParams.append('key', BETA_SERIES.apiKey);
     urlParams.append('access_token', localStorage.getItem('access_token_api'));
     urlParams.append('id', id);

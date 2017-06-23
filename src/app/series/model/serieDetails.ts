@@ -12,4 +12,5 @@ export class SerieDetails {
   language: string;
   status: string;
   images: any;
+  user: any;
 }
