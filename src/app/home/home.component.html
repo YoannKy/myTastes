@@ -7,7 +7,8 @@
         </div>
         <div class="row">
           <a routerLink="/movies" *ngIf="auth.isAuthenticated()"><img class="responsive-img z-depth-3" src="../assets/images/avatarPoster.jpg"></a>
-          <img *ngIf="!auth.isAuthenticated()" class="responsive-img z-depth-3" src="{{movie.poster}}">
+          <img *ngIf="!auth.isAuthenticated() && movie && movie.poster !== null" class="responsive-img z-depth-3" src="{{movie.poster}}">
+          <img *ngIf="!auth.isAuthenticated() && (undefined == movie || movie.poster === null)" class="responsive-img z-depth-3" src="../../assets/images/avatarPoster.jpg">
         </div>
       </div>
 
@@ -24,7 +25,8 @@
         </div>
         <div class="row">
           <a routerLink="/series" *ngIf="auth.isAuthenticated()"><img class="responsive-img z-depth-3" src="../assets/images/Game_of_Thrones.jpg"></a>
-          <img *ngIf="!auth.isAuthenticated()" class="responsive-img z-depth-3" src="../assets/images/Game_of_Thrones.jpg">
+          <img *ngIf="!auth.isAuthenticated() && serie && serie.images.poster !== null" class="responsive-img z-depth-3" src="{{serie.images.poster}}">
+          <img *ngIf="!auth.isAuthenticated() && (undefined == serie || serie.images.poster === null)" class="responsive-img z-depth-3" src="../../assets/images/Game_of_Thrones.jpg">
         </div>
       </div>
 

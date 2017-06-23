@@ -33,6 +33,15 @@ export class SeriesService extends BetaSeriesService {
       .catch(this.handleError);
   }
 
+  getRandomSerie(): Promise<SerieDetails> {
+    const getRandomSerieUrl = `${this.baseUrl}${BETA_SERIES.series.random}?v=${this.apiVersion}&key=${this.apiKey}`;
+    return this.http.get(getRandomSerieUrl)
+      .toPromise()
+      .then(response => response.json().shows as Serie)
+      .catch(this.handleError);
+  }
+
+
   getFavoriteSeries(): Promise<Serie[]> {
     let getFavoriteSeriesUrl = `${this.baseUrl}${BETA_SERIES.series.favorites}?v=${this.apiVersion}&key=${this.apiKey}&access_token=${localStorage.getItem('access_token_api')}`;
     return this.http.get(getFavoriteSeriesUrl)

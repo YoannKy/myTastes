@@ -42,7 +42,7 @@ export class MoviesService extends BetaSeriesService {
       .catch(this.handleError);
   }
 
-  getMovieRandom(): Promise<Movie> {
+  getMovieRandom(): Promise<MovieDetails> {
     let getMovieRandomUrl = `${this.baseUrl}${BETA_SERIES.movies.random}?v=${this.apiVersion}&key=${this.apiKey}`;
     console.log(getMovieRandomUrl);
     return this.http.get(getMovieRandomUrl)

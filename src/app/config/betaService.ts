@@ -15,7 +15,8 @@ export const BETA_SERIES = {
     show : 'shows/display',
     postShow: 'shows/show',
     postFavorite : 'shows/favorite',
-    favorites : 'shows/favorites'
+    favorites : 'shows/favorites',
+    random : 'shows/random'
   },
 
   apiAuth : {
