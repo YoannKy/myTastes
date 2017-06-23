@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Serie } from '../model/serie';
 import { SeriesService } from '../services/series.service';
+
 @Component({
   selector: 'app-series-favorites',
   templateUrl: './series-favorites.component.html',
   styleUrls: ['./series-favorites.component.css'],
   providers: [SeriesService]
 })
+
 export class SeriesFavoritesComponent implements OnInit {
   series: Serie[];
   isConnectedToBetaSeries: boolean = false;
@@ -23,6 +25,7 @@ export class SeriesFavoritesComponent implements OnInit {
           this.series = series;
         });
   };
+
   ngOnInit() {
     if(this.isConnectedToBetaSeries === true) {
       this.getFavoriteSeries();

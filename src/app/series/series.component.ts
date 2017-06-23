@@ -10,6 +10,7 @@ import { Serie } from './model/serie';
   styleUrls: ['./series.component.css'],
   providers: [SeriesService]
 })
+
 export class SeriesComponent implements OnInit {
   series: Serie[];
   loading: boolean = true;

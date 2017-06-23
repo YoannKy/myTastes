@@ -9,7 +9,6 @@ import { Router, ActivatedRoute }  from '@angular/router';
   styleUrls: ['./redirect-auth-api.component.css']
 })
 export class RedirectAuthApiComponent implements OnInit {
-private homeId
   constructor(
   	private router: Router,
   	private callbackHttpService: CallbackHttpService,

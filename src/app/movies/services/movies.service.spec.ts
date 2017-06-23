@@ -9,7 +9,6 @@ import {
 } from "@angular/http";
 import { MockBackend } from '@angular/http/testing';
 import { MoviesService } from './movies.service';
-import { BETA_SERIES } from '../../config/betaService';
 
 describe('MoviesService', () => {
   let backend: MockBackend;

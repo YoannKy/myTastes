@@ -48,5 +48,4 @@ export class MoviesComponent implements OnInit {
       .debounceTime(500)
       .subscribe(newValue => {this.searchInput = newValue; this.getMovies()});
   }
-
 }

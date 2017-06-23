@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, HttpModule, Response, RequestOptions, URLSearchParams } from '@angular/http';
+import { Headers, Http, RequestOptions, URLSearchParams } from '@angular/http';
 import { BetaSeriesService } from '../../beta-series.service';
 import { Serie } from '../model/serie';
 import 'rxjs/add/operator/toPromise';

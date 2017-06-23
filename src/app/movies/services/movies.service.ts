@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, HttpModule, Response,  RequestOptions, URLSearchParams } from '@angular/http';
+import { Headers, Http, RequestOptions, URLSearchParams } from '@angular/http';
 import { BetaSeriesService } from '../../beta-series.service';
 import { Movie } from '../model/movie';
 import 'rxjs/add/operator/toPromise';
@@ -62,15 +62,15 @@ export class MoviesService extends BetaSeriesService {
         .catch(this.handleError);
   }
 
-    postToSeeMovie(id: string) {
-      let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
-      let options = new RequestOptions({ headers: headers });
-      let urlParams = this.preparePostParameters(id);
-      let postToSeeMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.postToSee}`;
-      return this.http
-          .post(postToSeeMovieUrl, urlParams, options)
-          .toPromise()
-          .then(() => this.postFavoriteMovie(id))
-          .catch(this.handleError);
+  postToSeeMovie(id: string) {
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+    let options = new RequestOptions({ headers: headers });
+    let urlParams = this.preparePostParameters(id);
+    let postToSeeMovieUrl = `${this.baseUrl}${BETA_SERIES.movies.postToSee}`;
+    return this.http
+        .post(postToSeeMovieUrl, urlParams, options)
+        .toPromise()
+        .then(() => this.postFavoriteMovie(id))
+        .catch(this.handleError);
     }
 }

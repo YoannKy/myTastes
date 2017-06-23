@@ -11,9 +11,8 @@ import { MoviesService } from '../services/movies.service';
 export class MoviesFavoritesComponent implements OnInit {
   movies: Movie[];
   isConnectedToBetaSeries: boolean = false;
-  constructor(
-    private moviesService: MoviesService
-  ) {
+
+  constructor(private moviesService: MoviesService) {
     this.isConnectedToBetaSeries = localStorage.getItem('access_token_api') !== null;
   }
 
@@ -24,6 +23,7 @@ export class MoviesFavoritesComponent implements OnInit {
       this.movies = movies;
     });
   };
+
   ngOnInit() {
     if(this.isConnectedToBetaSeries === true) {
       this.getFavoriteMovies();

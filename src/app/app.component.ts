@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/services/auth.service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +9,8 @@ import { Location } from '@angular/common';
 export class AppComponent implements OnInit {
   title = 'app';
   isConnectedToBetaSeries: boolean = false;
-  myHome: boolean;
 
-  constructor(public auth: AuthService, private location: Location) {
+  constructor(public auth: AuthService) {
     auth.handleAuthentication();
   }
 
