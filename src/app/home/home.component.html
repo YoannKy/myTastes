@@ -7,7 +7,7 @@
         </div>
         <div class="row">
           <a routerLink="/movies" *ngIf="auth.isAuthenticated()"><img class="responsive-img z-depth-3" src="../assets/images/avatarPoster.jpg"></a>
-          <img *ngIf="!auth.isAuthenticated()" class="responsive-img z-depth-3" src="../assets/images/avatarPoster.jpg">
+          <img *ngIf="!auth.isAuthenticated()" class="responsive-img z-depth-3" src="{{movie.poster}}">
         </div>
       </div>
 

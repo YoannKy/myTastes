@@ -7,7 +7,8 @@ export const BETA_SERIES = {
     show : 'movies/movie',
     postFavorite: 'movies/favorite',
     postToSee: 'movies/movie',
-    favorites : 'movies/favorites'
+    favorites : 'movies/favorites',
+    random: 'movies/random'
   },
   series : {
     list : 'shows/search',

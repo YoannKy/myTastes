@@ -42,6 +42,16 @@ export class MoviesService extends BetaSeriesService {
       .catch(this.handleError);
   }
 
+  getMovieRandom(): Promise<Movie> {
+    let getMovieRandomUrl = `${this.baseUrl}${BETA_SERIES.movies.random}?v=${this.apiVersion}&key=${this.apiKey}`;
+    console.log(getMovieRandomUrl);
+    return this.http.get(getMovieRandomUrl)
+      .toPromise()
+      .then(response => response.json().movies as Movie[])
+      .catch(this.handleError);
+  }
+
+
   private preparePostParameters(id: string)
   {
     let urlParams = new URLSearchParams();
